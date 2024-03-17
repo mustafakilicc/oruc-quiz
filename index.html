@@ -177,11 +177,15 @@
     
 
     const combinedData = includeCivilians ? [...terroristData] : terroristData;
-    combinedData.sort(() => Math.random() - 0.5);
+    combinedData.sort(() => getRandomInt(0, 100) - getRandomInt(0, 100));
 
     return combinedData;
   }
-
+  function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
   async function populateImageData() {
     let imagesData = await fetchImagesData();
     
