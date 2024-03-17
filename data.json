@@ -27,6 +27,30 @@
   {
     "Soru": "Gizlice bir şeyler yesem orucum bozulur mu?",
     "Cevap": "Bozar"
+  },
+  {
+    "Soru": "Aşı olmak veya iğne yaptırmak orucu bozar mı?",
+    "Cevap": "Bozmaz"
+  },
+  {
+    "Soru": "Sigara içmek orucu bozar mı?",
+    "Cevap": "Bozar"
+  },
+  {
+    "Soru": "Su yutmadan diş fırçalamak orucu bozar mı?",
+    "Cevap": "Bozmaz"
+  },
+  {
+    "Soru": "Duş almak orucu bozar mı?",
+    "Cevap": "Bozmaz"
+  },
+  {
+    "Soru": "Kulak, göz ve burun damlası orucu bozar mı?",
+    "Cevap": "Bozmaz"
+  },
+  {
+    "Soru": "Sahurda ezan bitene kadar yemek orucu bozar mı?",
+    "Cevap": "Bozar"
   }
   
   
