@@ -153,11 +153,7 @@
         throw new Error('Hata: Veriler yüklenemedi, lütfen sayfayı yenileyin.');
       }
       const data = await response.json();
-      return data.filter((terrorist) => !!terrorist.GorselURL?.length)
-        .map(terrorist => {
-          terrorist.IlkGorselURL = "https://www.terorarananlar.pol.tr/" + terrorist.IlkGorselURL;
-          return terrorist;
-        });
+      return data;
 
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -187,8 +183,6 @@
 
   async function populateQuizData() {
     let terroristData = await fetchTerroristData();
-    let civilianData = [];
-
     
 
     const combinedData = includeCivilians ? [...terroristData] : terroristData;
