@@ -51,6 +51,10 @@
   {
     "Soru": "Sahurda ezan bitene kadar yemek orucu bozar mı?",
     "Cevap": "Bozar"
+  },
+  {
+    "Soru": "ezan okundu sanıp oruç açmak orucu bozar mı?",
+    "Cevap": "Bozar"
   }
   
   
