@@ -1,12 +1,34 @@
 [
+
   {
-    "Soru": "Su içmek orucu bozar mı ?",
-    "Cevap": "Bozar"
-    
+    "Soru": "Yanlışlıkla su içmek orucu bozar mı?",
+    "Cevap": "Bozmaz"
   },
   {
-    "Soru": "yanlışlıkla su içmek orucu bozar mı ?",
+    "Soru": "Oruçlu birinin rüyasında yemek yemesi orucu bozar mı?",
     "Cevap": "Bozmaz"
+  },
+  {
+    "Soru": "Nefes darlığı sorunum var. Kullandığım fıs fıs orucumu bozar mı?",
+    "Cevap": "Bozmaz"
+  },
+  {
+    "Soru": "Göz damlası orucu bozar mı?",
+    "Cevap": "Bozmaz"
+  },
+  {
+    "Soru": "Daha erken ezan okunan bir şehre göre iftar açmak orucu bozar mı?",
+    "Cevap": "Bozar"
+  },
+  {
+    "Soru": "Oruçluyken sakız çiğnemek orucu bozar mı?",
+    "Cevap": "Bozar"
+  },
+  {
+    "Soru": "Gizlice bir şeyler yesem orucum bozulur mu?",
+    "Cevap": "Bozar"
   }
+  
+  
   
 ]
