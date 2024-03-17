@@ -186,21 +186,21 @@
     return combinedData;
   }
 
-  async function getHocaImageUrl() {
+  async function populateImageData() {
     let imagesData = await fetchImagesData();
+    
+
     const combinedData = includeCivilians ? [...imagesData] : imagesData;
     combinedData.sort(() => Math.random() - 0.5);
-    const randomIndex = Math.floor(Math.random() * imagesData.length);
-    const currentImage = combinedData[randomIndex];
-    const currentUrl = currentImage.Url;
 
-    return currentUrl;
-
+    return combinedData;
   }
+
   
 
   async function displayQuiz() {
     const terroristData = await populateQuizData();
+    const imageData = await populateImageData();
 
     if (terroristData.length === 0) {
       alert('Hata: Veriler yüklenemedi. Lütfen sayfayı yenileyin.');
@@ -213,6 +213,11 @@
     const correctAnswer = currentTerrorist.Cevap;
     const uniqueTerroristNames = Array.from(new Set(terroristData.map(data => data.Cevap)));
     const indexToRemove = uniqueTerroristNames.indexOf(correctAnswer);
+
+    const randomIndexForımage = Math.floor(Math.random() * imageData.length);
+    const currentImage = imageData[randomIndex];
+    const randomImageUrl = currentImage.Url;
+    
 
     if (indexToRemove !== -1) {
       uniqueTerroristNames.splice(indexToRemove, 1);
@@ -228,7 +233,6 @@
 
     const allAnswers = [correctAnswer, ...incorrectAnswers].sort(() => Math.random() - 0.5);
     const quizContainer = document.getElementById('quiz-container');
-    var randomImageUrl = getHocaImageUrl();
     quizContainer.innerHTML = `<div class="image-container">
       <img src="${randomImageUrl}" alt="Terrorist Image">
     </div>
