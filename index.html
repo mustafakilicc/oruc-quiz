@@ -119,11 +119,7 @@
     <br/>
     <button id="reset-button">Skoru Sıfırla</button>
     <br/>
-    <h2>Sivilleri Ekle</h2>
-    <label class="switch">
-      <input type="checkbox" id="include-civilians-toggle" onchange="toggleIncludeCivilians()" checked>
-      <span class="slider round"></span>
-    </label>
+    
     <details class="about">
       <summary>Hakkında</summary>
       <p>Veriler herkese açık olarak yayınlanan <a href="https://www.terorarananlar.pol.tr/tarananlar/" target="_blank">T.C. İçişleri Bakanlığı Terör Arananlar</a> listesinden alınmaktadır.</p>
@@ -179,24 +175,6 @@
     }
   }
 
-  async function fetchCivilianData() {
-    try {
-      const civilianData = [];
-      for (let i = 0; i < 750; i++) {
-        const timestamp = new Date().getTime();
-        const civilianImageUrl = `https://thispersondoesnotexist.com/?timestamp=${timestamp}`;
-        civilianData.push({
-          TOrgutAdi: 'Sivil',
-          IlkGorselURL: civilianImageUrl
-        });
-      }
-
-      return civilianData;
-    } catch (error) {
-      console.error('Hata: Sivil verileri alınamadı:', error);
-      return [];
-    }
-  }
 
   async function populateQuizData() {
     let terroristData = await fetchTerroristData();
@@ -217,9 +195,7 @@
     return combinedData[randomIndex].Url;
 
   }
-  function toggleIncludeCivilians() {
-    includeCivilians = !includeCivilians;
-  }
+  
 
   async function displayQuiz() {
     const terroristData = await populateQuizData();
