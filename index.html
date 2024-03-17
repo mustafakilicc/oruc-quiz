@@ -177,7 +177,7 @@
     
 
     const combinedData = includeCivilians ? [...terroristData] : terroristData;
-    combinedData.sort(() => getRandomInt(0, 100) - getRandomInt(0, 100));
+    combinedData.sort(() => Math.random() - 0.5);
 
     return combinedData;
   }
@@ -196,7 +196,18 @@
     return combinedData;
   }
 
-  
+  function getRandomIndex(length) {
+  let currentIndex = length;
+  let randomIndex;
+
+  while (currentIndex !== 0) {
+    // Rastgele bir index seçme
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+  }
+
+  return randomIndex;
+} 
 
   async function displayQuiz() {
     const terroristData = await populateQuizData();
@@ -208,13 +219,13 @@
       return;
     }
 
-    const randomIndex = Math.floor(Math.random() * terroristData.length);
+    const randomIndex =  getRandomIndex(terroristData.length);
     const currentTerrorist = terroristData[randomIndex];
     const correctAnswer = currentTerrorist.Cevap;
     const uniqueTerroristNames = Array.from(new Set(terroristData.map(data => data.Cevap)));
     const indexToRemove = uniqueTerroristNames.indexOf(correctAnswer);
 
-    const randomIndexForımage = Math.floor(Math.random() * imageData.length);
+    const randomIndexForımage =  getRandomIndex(imageData.length);
     const currentImage = imageData[randomIndex];
     const randomImageUrl = currentImage.Url;
     
