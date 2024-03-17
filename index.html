@@ -143,11 +143,11 @@
   let incorrectScore = localStorage.getItem('incorrectScore') ? parseInt(localStorage.getItem('incorrectScore')) : 0;
   let totalQuestionsAnswered = correctScore + incorrectScore;
 
-  let includeCivilians = true;
+  let includeCivilians = false;
 
   async function fetchTerroristData() {
     try {
-      const response = await fetch('https://raw.githubusercontent.com/mustafakilicc/oruc-quiz/58be26e49c5479c0812d750b7ee5bec73de836a8/data.json');
+      const response = await fetch('https://raw.githubusercontent.com/mustafakilicc/oruc-quiz/main/data.json');
 
       if (!response.ok) {
         throw new Error('Hata: Veriler yüklenemedi, lütfen sayfayı yenileyin.');
@@ -189,16 +189,26 @@
     let terroristData = await fetchTerroristData();
     let civilianData = [];
 
-    if (includeCivilians) {
-      civilianData = await fetchCivilianData();
-    }
+    
 
-    const combinedData = includeCivilians ? [...terroristData, ...civilianData] : terroristData;
+    const combinedData = includeCivilians ? [...terroristData] : terroristData;
     combinedData.sort(() => Math.random() - 0.5);
 
     return combinedData;
   }
 
+  async function getHocaImageUrl() {
+    var imageUrls = [
+    "https://file.daktilo.com/themes/enerjik/assets/img/mask-16-9.png",
+    "https://file.daktilo.com/themes/enerjik/assets/img/mask-16-9.png",
+    "https://file.daktilo.com/themes/enerjik/assets/img/mask-16-9.png"
+    
+  ];
+
+  var randomIndex = Math.floor(Math.random() * imageUrls.length);
+    return imageUrls[randomIndex];
+
+  }
   function toggleIncludeCivilians() {
     includeCivilians = !includeCivilians;
   }
@@ -214,8 +224,8 @@
 
     const randomIndex = Math.floor(Math.random() * terroristData.length);
     const currentTerrorist = terroristData[randomIndex];
-    const correctAnswer = currentTerrorist.TOrgutAdi;
-    const uniqueTerroristNames = Array.from(new Set(terroristData.map(data => data.TOrgutAdi)));
+    const correctAnswer = currentTerrorist.Cevap;
+    const uniqueTerroristNames = Array.from(new Set(terroristData.map(data => data.Cevap)));
     const indexToRemove = uniqueTerroristNames.indexOf(correctAnswer);
 
     if (indexToRemove !== -1) {
@@ -224,7 +234,7 @@
 
     const incorrectAnswers = [];
 
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 1; i++) {
       const randomIndex = Math.floor(Math.random() * uniqueTerroristNames.length);
       incorrectAnswers.push(uniqueTerroristNames[randomIndex]);
       uniqueTerroristNames.splice(randomIndex, 1);
@@ -232,11 +242,11 @@
 
     const allAnswers = [correctAnswer, ...incorrectAnswers].sort(() => Math.random() - 0.5);
     const quizContainer = document.getElementById('quiz-container');
-
+    var randomImageUrl = getHocaImageUrl();
     quizContainer.innerHTML = `<div class="image-container">
-      <img src="${currentTerrorist.IlkGorselURL}" alt="Terrorist Image">
+      <img src="${randomImageUrl}" alt="Terrorist Image">
     </div>
-    <p>Hangi örgüt?</p>
+    <p>${currentTerrorist.Soru}</p>
     ${allAnswers.map(answer => `<button class="answer-button" onclick="checkAnswer('${correctAnswer}', '${answer}')">${answer}</button>`).join('')}
     `;
   }
