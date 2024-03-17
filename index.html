@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terrorist Quiz</title>
+  <title>Oruç Quiz</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -113,7 +113,7 @@
 </head>
 <body>
   <div class="container">
-    <h1>Terrorist Quiz</h1>
+    <h1>Oruç Quiz</h1>
     <div id="quiz-container"></div>
     <div id="scoreboard" class="scoreboard">Doğru: 0 | Yanlış: 0</div>
     <br/>
@@ -147,7 +147,7 @@
 
   async function fetchTerroristData() {
     try {
-      const response = await fetch('https://raw.githubusercontent.com/osumatu/terorist-quiz/main/data.json');
+      const response = await fetch('https://raw.githubusercontent.com/mustafakilicc/oruc-quiz/58be26e49c5479c0812d750b7ee5bec73de836a8/data.json');
 
       if (!response.ok) {
         throw new Error('Hata: Veriler yüklenemedi, lütfen sayfayı yenileyin.');
