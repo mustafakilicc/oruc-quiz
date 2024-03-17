@@ -213,7 +213,7 @@
     const combinedData = includeCivilians ? [...imagesData] : imagesData;
     combinedData.sort(() => Math.random() - 0.5);
 
-  var randomIndex = Math.floor(Math.random() * imageUrls.length);
+  var randomIndex = Math.floor(Math.random() * imagesData.length);
     return combinedData[randomIndex];
 
   }
