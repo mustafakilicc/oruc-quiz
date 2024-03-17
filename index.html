@@ -231,7 +231,7 @@
       uniqueTerroristNames.splice(randomIndex, 1);
     }
 
-    const allAnswers = [correctAnswer, ...incorrectAnswers].sort(() => Math.random() - 0.5);
+    const allAnswers = [correctAnswer, ...incorrectAnswers];
     const quizContainer = document.getElementById('quiz-container');
     quizContainer.innerHTML = `<div class="image-container">
       <img src="${randomImageUrl}" alt="Terrorist Image">
