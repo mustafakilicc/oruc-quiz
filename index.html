@@ -162,6 +162,23 @@
     }
   }
 
+  async function fetchImagesData() {
+    try {
+      const response = await fetch('https://raw.githubusercontent.com/mustafakilicc/oruc-quiz/main/imageUrls.json');
+
+      if (!response.ok) {
+        throw new Error('Hata: Veriler yüklenemedi, lütfen sayfayı yenileyin.');
+      }
+      const data = await response.json();
+      return data;
+
+    } catch (error) {
+      console.error('Error fetching data:', error);
+
+      return [];
+    }
+  }
+
   async function fetchCivilianData() {
     try {
       const civilianData = [];
@@ -192,15 +209,12 @@
   }
 
   async function getHocaImageUrl() {
-    var imageUrls = [
-    "https://file.daktilo.com/themes/enerjik/assets/img/mask-16-9.png",
-    "https://file.daktilo.com/themes/enerjik/assets/img/mask-16-9.png",
-    "https://file.daktilo.com/themes/enerjik/assets/img/mask-16-9.png"
-    
-  ];
+    let imagesData = await fetchImagesData();
+    const combinedData = includeCivilians ? [...imagesData] : imagesData;
+    combinedData.sort(() => Math.random() - 0.5);
 
   var randomIndex = Math.floor(Math.random() * imageUrls.length);
-    return imageUrls[randomIndex];
+    return combinedData[randomIndex];
 
   }
   function toggleIncludeCivilians() {
