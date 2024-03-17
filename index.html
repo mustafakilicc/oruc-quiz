@@ -231,7 +231,7 @@
       uniqueTerroristNames.splice(randomIndex, 1);
     }
 
-    const allAnswers = [correctAnswer, ...incorrectAnswers];
+    const allAnswers = correctAnswer==="Bozar"?[correctAnswer, ...incorrectAnswers]:[...incorrectAnswers, correctAnswer ];
     const quizContainer = document.getElementById('quiz-container');
     quizContainer.innerHTML = `<div class="image-container">
       <img src="${randomImageUrl}" alt="Terrorist Image">
