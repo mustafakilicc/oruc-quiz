@@ -55,7 +55,17 @@
   {
     "Soru": "Ezan okundu sanıp oruç açmak orucu bozar mı?",
     "Cevap": "Bozar"
+  },
+  {
+    "Soru": "Nikotin bandı orucu bozar mı?",
+    "Cevap": "Bozmaz"
+  },
+  {
+    "Soru": "Merhemler, ilaçlı Bantlar Orucu Bozar mı?",
+    "Cevap": "Bozmaz"
   }
+
+  
   
   
   
