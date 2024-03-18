@@ -25,7 +25,7 @@
     "Cevap": "Bozar"
   },
   {
-    "Soru": "Gizlice bir şeyler yesem orucum bozulur mu?",
+    "Soru": "Gizlice bir şeyler yemek orucu bozar mı?",
     "Cevap": "Bozar"
   },
   {
@@ -83,6 +83,10 @@
   {
     "Soru": "Dost kazığı yemek Orucu Bozar mı?",
     "Cevap": "Bozmaz"
+  },
+  {
+    "Soru": "Abdest alırken yanlışlıkla su yutmak orucu bozar mı?",
+    "Cevap": "Bozar"
   }
 
   
