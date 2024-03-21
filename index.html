@@ -136,7 +136,7 @@
   let incorrectScore = localStorage.getItem('incorrectScore') ? parseInt(localStorage.getItem('incorrectScore')) : 0;
   let totalQuestionsAnswered = correctScore + incorrectScore;
   let currentQuestion = localStorage.getItem('currentQuestion') ? parseInt(localStorage.getItem('currentQuestion')) : 0;
-
+  let terroristDataLength;
   let includeCivilians = false;
 
   async function fetchTerroristData() {
@@ -176,10 +176,10 @@
 
   async function populateQuizData() {
     let terroristData = await fetchTerroristData();
-    
+    terroristDataLength = terroristData.length;
 
     const combinedData = includeCivilians ? [...terroristData] : terroristData;
-    combinedData.sort(() => Math.random() - 0.5);
+    //combinedData.sort(() => Math.random() - 0.5);
 
     return combinedData;
   }
@@ -308,12 +308,7 @@
         confirmButtonText: 'Devam',
       }).then((result) => {
         correctScore++;
-        if(currentQuestion<terroristData.length){
-          currentQuestion++;
-        }else{
-          currentQuestion = 0;
-          //getRandomIndex(terroristData.length);
-        }
+        updateCurrentQuestion()
         updateScoreboard();
         checkQuestionCount();
       });
@@ -324,16 +319,21 @@
         confirmButtonText: 'Devam',
       }).then((result) => {
         incorrectScore++;
-        if(currentQuestion<terroristData.length){
-          currentQuestion++;
-        }else{
-          currentQuestion = getRandomIndex(terroristData.length);
-        }
+        updateCurrentQuestion()
         updateScoreboard();
         checkQuestionCount();
       });
     }
   }
+  
+
+  function updateCurrentQuestion() {
+    if(currentQuestion<terroristDataLength){
+          currentQuestion++;
+    }else{
+          currentQuestion = getRandomIndex(terroristDataLength);
+    }
+  } 
 
   function updateScoreboard() {
     const scoreboard = document.getElementById('scoreboard');
@@ -341,6 +341,7 @@
 
     localStorage.setItem('correctScore', correctScore);
     localStorage.setItem('incorrectScore', incorrectScore);
+    localStorage.setItem('currentQuestion',currentQuestion);
   }
 
   window.onload = function() {
