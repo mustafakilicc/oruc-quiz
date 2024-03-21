@@ -127,6 +127,7 @@
   document.getElementById('reset-button').addEventListener('click', function() {
     correctScore = 0;
     incorrectScore = 0;
+    currentQuestion =0;
     totalQuestionsAnswered = 0;
     updateScoreboard();
   });
@@ -134,6 +135,7 @@
   let correctScore = localStorage.getItem('correctScore') ? parseInt(localStorage.getItem('correctScore')) : 0;
   let incorrectScore = localStorage.getItem('incorrectScore') ? parseInt(localStorage.getItem('incorrectScore')) : 0;
   let totalQuestionsAnswered = correctScore + incorrectScore;
+  let currentQuestion = localStorage.getItem('currentQuestion') ? parseInt(localStorage.getItem('currentQuestion')) : 0;
 
   let includeCivilians = false;
 
@@ -220,13 +222,13 @@
     }
 
     const randomIndex =  getRandomIndex(terroristData.length);
-    const currentTerrorist = terroristData[randomIndex];
+    const currentTerrorist = terroristData[currentQuestion];
     const correctAnswer = currentTerrorist.Cevap;
     const uniqueTerroristNames = Array.from(new Set(terroristData.map(data => data.Cevap)));
     const indexToRemove = uniqueTerroristNames.indexOf(correctAnswer);
 
     const randomIndexForımage =  getRandomIndex(imageData.length);
-    const currentImage = imageData[randomIndex];
+    const currentImage = imageData[randomIndexForımage];
     const randomImageUrl = currentImage.Url;
     
 
@@ -286,6 +288,7 @@
         } else {
           correctScore = 0;
           incorrectScore = 0;
+          currentQuestion = 0;
           totalQuestionsAnswered = 0;
           updateScoreboard();
           displayQuiz();
@@ -305,6 +308,12 @@
         confirmButtonText: 'Devam',
       }).then((result) => {
         correctScore++;
+        if(currentQuestion<terroristData.length){
+          currentQuestion++;
+        }else{
+          currentQuestion = 0;
+          //getRandomIndex(terroristData.length);
+        }
         updateScoreboard();
         checkQuestionCount();
       });
@@ -315,6 +324,11 @@
         confirmButtonText: 'Devam',
       }).then((result) => {
         incorrectScore++;
+        if(currentQuestion<terroristData.length){
+          currentQuestion++;
+        }else{
+          currentQuestion = getRandomIndex(terroristData.length);
+        }
         updateScoreboard();
         checkQuestionCount();
       });
