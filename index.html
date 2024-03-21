@@ -234,15 +234,18 @@
       uniqueTerroristNames.splice(indexToRemove, 1);
     }
 
-    const incorrectAnswers = [];
+   // const incorrectAnswers = [];
 
-    for (let i = 0; i < 1; i++) {
-      const randomIndex = Math.floor(Math.random() * uniqueTerroristNames.length);
-      incorrectAnswers.push(uniqueTerroristNames[randomIndex]);
-      uniqueTerroristNames.splice(randomIndex, 1);
-    }
+    //for (let i = 0; i < 1; i++) {
+    //  const randomIndex = Math.floor(Math.random() * uniqueTerroristNames.length);
+    //  incorrectAnswers.push(uniqueTerroristNames[randomIndex]);
+    //  uniqueTerroristNames.splice(randomIndex, 1);
+    //}
 
-    const allAnswers = correctAnswer==="Bozar"?[correctAnswer, ...incorrectAnswers]:[...incorrectAnswers, correctAnswer ];
+    const allAnswers = correctAnswer==="Bozar"?[correctAnswer, "Bozmaz"]:
+                               correctAnswer==="Bozulur"?[correctAnswer, "Bozulmaz"]: 
+                                  correctAnswer==="Bozmaz"?["Bozar", correctAnswer]:
+                                     ["Bozulur", correctAnswer ];
     const quizContainer = document.getElementById('quiz-container');
     quizContainer.innerHTML = `<div class="image-container">
       <img src="${randomImageUrl}" alt="Terrorist Image">
