@@ -258,7 +258,7 @@
   async function checkQuestionCount() {
     totalQuestionsAnswered++;
 
-    if (totalQuestionsAnswered % 5 === 0) {
+    if (totalQuestionsAnswered % 8 === 0) {
       const successRate = ((correctScore / totalQuestionsAnswered) * 100).toFixed(2);
 
       let title = '';
