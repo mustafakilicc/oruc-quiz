@@ -331,7 +331,7 @@
     if(currentQuestion<terroristDataLength-1){
           currentQuestion++;
     }else{
-          currentQuestion = getRandomIndex(terroristDataLength);
+          currentQuestion = Math.floor(Math.random() * terroristDataLength);
     }
   } 
 

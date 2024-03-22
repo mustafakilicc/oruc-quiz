@@ -5,6 +5,10 @@
     "Cevap": "Bozmaz"
   },
   {
+    "Soru": "Peki ağza suyu aldık..Hafiften dolandırıyoruz..İnceden bademciğe dokunuyo..Derken hop, Bi damla yapıştı diyelim bademciğe.. orucum Bozulur mu?",
+    "Cevap": "Bozulmaz"
+  },
+  {
     "Soru": "Oruçlu birinin rüyasında yemek yemesi Orucu Bozar Mı?",
     "Cevap": "Bozmaz"
   },
@@ -15,6 +19,10 @@
   {
     "Soru": "Göz damlası Orucu Bozar Mı?",
     "Cevap": "Bozmaz"
+  },
+  {
+    "Soru": "Oruç tutsam yemek Bozulur mu?",
+    "Cevap": "Bozulmaz"
   },
   {
     "Soru": "Daha erken ezan okunan bir şehre göre iftar açmak Orucu Bozar Mı?",
@@ -30,6 +38,10 @@
   },
   {
     "Soru": "Aşı olmak veya iğne yaptırmak Orucu Bozar Mı?",
+    "Cevap": "Bozmaz"
+  },
+  {
+    "Soru": "Feleğin sillesini yemek Orucu Bozar Mı?",
     "Cevap": "Bozmaz"
   },
   {
@@ -73,24 +85,12 @@
     "Cevap": "Bozmaz"
   },
   {
-    "Soru": "Feleğin sillesini yemek Orucu Bozar Mı?",
-    "Cevap": "Bozmaz"
-  },
-  {
     "Soru": "Ayvayı yemek Orucu Bozar Mı?",
     "Cevap": "Bozmaz"
   },
   {
     "Soru": "Ağzına giren yağmuru, doluyu, karı yutmak Orucu Bozar Mı?",
     "Cevap": "Bozar"
-  },
-  {
-    "Soru": "Peki ağza suyu aldık..Hafiften dolandırıyoruz..İnceden bademciğe dokunuyo..Derken hop, Bi damla yapıştı diyelim bademciğe.. oruç Bozulur mu?",
-    "Cevap": "Bozulmaz"
-  },
-  {
-    "Soru": "Oruç tutsam yemek Bozulur mu?",
-    "Cevap": "Bozulmaz"
   },
   {
     "Soru": "Dost kazığı yemek Orucu Bozar Mı?",
